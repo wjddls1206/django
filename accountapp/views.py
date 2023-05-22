@@ -20,9 +20,8 @@ has_ownership = [account_ownership_required, login_required]
 def hello_world(request):
     # 로그인이 되어있을 경우
     if request.method == "POST":
-
+        # temp에는 text가 들어옴 / "accounts/hello_world"에서 입력받는 창에서 'get'해옴.
         temp = request.POST.get('hello_world_input')
-
         new_hello_world = HelloWorld()
         new_hello_world.text = temp
         new_hello_world.save()
@@ -49,7 +48,10 @@ class  AccountDetailView(DetailView):
 @method_decorator(has_ownership, 'get')
 @method_decorator(has_ownership, 'post')
 class AccountUpdateView(UpdateView):
+    # User : (장고에 기본적으로 있는 모델)
     model = User
+    # target_use : 업데이트 대상
+    # context_object_name : 별명
     context_object_name = 'target_user'
     form_class = AccountUpdateForm
     success_url = reverse_lazy('accountapp:hello_world')

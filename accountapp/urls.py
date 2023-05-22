@@ -3,6 +3,7 @@ from django.urls import path
 
 from accountapp.views import hello_world, AccountCreateView, AccountDetailView, AccountUpdateView, AccountDeleteView
 
+# app_name의 ~~ url을 보내줘 !
 app_name = "accountapp"
 
 urlpatterns = [
