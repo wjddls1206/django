@@ -11,6 +11,8 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
+# pragmatic.settings 에서 수정함 .base를 붙여서 수정함
+# 이거 수정해도안됨 뭐야;;; 그럼 일단 원래대로 돌려둠;;
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'pragmatic.settings')
 
 application = get_wsgi_application()
